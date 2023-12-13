@@ -37,7 +37,9 @@ function CardJogos({ id, title, text, onDelete, onUpdate }) {
         <Card.Img variant="top" src={jogosImg} />
         <Card.Body>
           <Card.Title className="text-light">{title}</Card.Title>
-          <Card.Text className="text-light">{text}</Card.Text>
+          <Card.Text className="text-light">
+          <a href={text} target="_blank">{text}</a>
+          </Card.Text>
           <Button variant="danger" onClick={handleDelete}>
             Excluir
           </Button>
