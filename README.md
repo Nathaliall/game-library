@@ -7,6 +7,8 @@
 
 <h2 id="sobre">Sobre</h2> 
 
+LINK DO RELATÓRIO: https://docs.google.com/document/d/10OzhDMKfd7l8Kavuov05OG5YwMJi5tJrIeJdPmCGvRY/edit#heading=h.uu33yhj36ezq
+
 Tela Inicial
 ![image](https://github.com/Nathaliall/game-library/assets/142734660/4fd816a4-2cbe-4477-909f-e5904e598163)
 
