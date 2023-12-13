@@ -22,19 +22,15 @@ function ListaDeJogos() {
   };
 
   const handleAddJogo = () => {
-    // Faça uma chamada API para adicionar um novo jogo
     api.post('/jogos', novoJogo)
       .then(response => {
-        // Atualize o estado para incluir o novo jogo
         setJogos(prevJogos => [...prevJogos, response.data]);
-        // Limpe o estado do novoJogo
         setNovoJogo({ nome: '', descricao: '' });
       })
       .catch(error => console.error(error));
   };
 
   const handleChange = (e) => {
-    // Atualize o estado do novoJogo conforme o usuário digita
     setNovoJogo({ ...novoJogo, [e.target.name]: e.target.value });
   };
 

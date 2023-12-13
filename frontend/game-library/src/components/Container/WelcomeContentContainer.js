@@ -1,17 +1,17 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Carousel from 'react-bootstrap/Carousel';
-import { useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import eldenring from "../../images/eldenring.jpg"
 import tails from "../../images/tails.jpg"
+import minecraft from "../../images/minecraft.jpg"
 import Card from 'react-bootstrap/Card';
 
 const imageStyle = {
-  objectFit: 'cover', // Redimensiona a imagem para cobrir completamente o contêiner
-  objectPosition: 'top', // Exibe a parte superior da imagem no modo de cobertura
-  maxHeight: '353px', // Altura máxima desejada para todas as imagens
-  width: '100%', // Garante que a imagem ocupe 100% da largura do contêiner
+  objectFit: 'cover', 
+  objectPosition: 'top', 
+  maxHeight: '353px',
+  width: '100%', 
 };
 
 const WelcomeContentContainer = ()=>{
@@ -31,7 +31,7 @@ const WelcomeContentContainer = ()=>{
     </Card>
       </Col>
       <Col style={{
-          maxHeight: '400px', // Defina a altura máxima desejada
+          maxHeight: '400px',
         }}>
       <Carousel >
       <Carousel.Item>
@@ -48,6 +48,15 @@ const WelcomeContentContainer = ()=>{
           className="d-block w-100"
           src={tails}
           alt="Segunda imagem"
+          style={imageStyle}
+        />
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={minecraft}
+          alt="Primeira imagem"
           style={imageStyle}
         />
       </Carousel.Item>

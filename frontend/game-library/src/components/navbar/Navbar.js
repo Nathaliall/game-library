@@ -19,9 +19,8 @@ const NavbarContainer = ()=>{
             GameHub
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/login">Login</Nav.Link>
-            <Nav.Link as={Link} to="/signup">SignUp</Nav.Link>
             <Nav.Link as={Link} to="/library">Biblioteca</Nav.Link>
+            <Nav.Link as={Link} to="/plataforms">Plataformas</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
