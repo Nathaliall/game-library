@@ -3,10 +3,6 @@
         <li><a href="#sobre">Sobre</a></li>
         <li> <a href="#especificacoes">Especificações</a></li>
         <li> <a href="#comorodaroprojeto">Como Rodar o Projeto?</a> </li>
-        <li> <a href="#resultados"> Resultados de Desenvolvimento</a> </li>
-        <li> <a href="#features">Features</a> </li>
-        <li> <a href="#conteudoxterno">Conteúdo externo</a></li>
-        <li> <a href="#nossaequipe">Nossa Equipe</a></li>
 </ol>
 
 <h2 id="sobre">Sobre</h2> 
