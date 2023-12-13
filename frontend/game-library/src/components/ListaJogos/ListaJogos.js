@@ -38,6 +38,19 @@ function ListaDeJogos() {
     setNovoJogo({ ...novoJogo, [e.target.name]: e.target.value });
   };
 
+  const handleUpdateJogo = (id, updatedData) => {
+    api.put(`/jogos/${id}`, updatedData)
+      .then(response => {
+        setJogos(prevJogos =>
+          prevJogos.map(jogo =>
+            jogo.id === id ? { ...jogo, ...updatedData } : jogo
+          )
+        );
+      })
+      .catch(error => console.error(error));
+  };
+
+
   return (
     <Container className="pb-5">
       <Row className="mb-3">
@@ -71,6 +84,7 @@ function ListaDeJogos() {
               title={jogo.nome}
               text={jogo.descricao}
               onDelete={handleDelete}
+              onUpdate={handleUpdateJogo}
             />
           </Col>
         ))}
