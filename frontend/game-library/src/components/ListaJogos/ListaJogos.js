@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import api from '../../services/api';
 import CardJogos from '../CardJogos/CardJogos';
 
 function ListaDeJogos() {
   const [jogos, setJogos] = useState([]);
+  const [novoJogo, setNovoJogo] = useState({ nome: '', descricao: '' });
 
   useEffect(() => {
     api.get('/jogos')
@@ -13,21 +14,58 @@ function ListaDeJogos() {
   }, []);
 
   const handleDelete = (id) => {
-    // Faça uma chamada API para excluir o jogo com o ID fornecido
     api.delete(`/jogos/${id}`)
       .then(response => {
-        // Atualize o estado para refletir a exclusão
         setJogos(prevJogos => prevJogos.filter(jogo => jogo.id !== id));
       })
       .catch(error => console.error(error));
   };
 
+  const handleAddJogo = () => {
+    // Faça uma chamada API para adicionar um novo jogo
+    api.post('/jogos', novoJogo)
+      .then(response => {
+        // Atualize o estado para incluir o novo jogo
+        setJogos(prevJogos => [...prevJogos, response.data]);
+        // Limpe o estado do novoJogo
+        setNovoJogo({ nome: '', descricao: '' });
+      })
+      .catch(error => console.error(error));
+  };
+
+  const handleChange = (e) => {
+    // Atualize o estado do novoJogo conforme o usuário digita
+    setNovoJogo({ ...novoJogo, [e.target.name]: e.target.value });
+  };
+
   return (
     <Container className="pb-5">
+      <Row className="mb-3">
+        <Col>
+          <input
+            type="text"
+            name="nome"
+            placeholder="Nome do Jogo"
+            value={novoJogo.nome}
+            onChange={handleChange}
+            autocomplete="off"
+          />
+          <input
+            type="text"
+            name="descricao"
+            placeholder="Descrição do Jogo"
+            value={novoJogo.descricao}
+            onChange={handleChange}
+            autocomplete="off"
+          />
+          <Button variant="success" onClick={handleAddJogo}>
+            Adicionar Jogo
+          </Button>
+        </Col>
+      </Row>
       <Row>
         {jogos.map(jogo => (
           <Col key={jogo.id} sm={12} md={6} lg={4}>
-            {/* Passe a função handleDelete e o ID do jogo como propriedades */}
             <CardJogos
               id={jogo.id}
               title={jogo.nome}
